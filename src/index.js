@@ -1,10 +1,14 @@
 const express = require("express");
 const app = express();
+const cors = require("cors");
 const { PORT } = require("./config/server.config");
 const bodyParser = require("body-parser");
 const apiRouter = require("./routes");
 const errorHandler = require("./utils/errorHandler");
 const connectToDB = require("./config/db.config");
+
+// CORS Middleware
+app.use(cors());
 
 // Parsing Middleware
 app.use(bodyParser.json());
