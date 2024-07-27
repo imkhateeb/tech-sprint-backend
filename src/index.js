@@ -17,7 +17,7 @@ app.use(bodyParser.text());
 
 // Routes
 app.use("/api", apiRouter);
-app.get("/ping", (req, res) => {
+app.get("/check", (req, res) => {
   return res.send("Hello World");
 });
 

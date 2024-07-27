@@ -1,11 +1,17 @@
 const express = require("express");
 const { walletController } = require("../../../controllers");
 const { doctorValidator } = require("../../../validators");
+const { StatusCodes } = require("http-status-codes");
 
 const doctorWalletRouter = express.Router();
 
-doctorWalletRouter.get("/ping", (req, res) => {
-  res.send("pong");
+doctorWalletRouter.get("/check", (req, res) => {
+  res.status(StatusCodes.OK).json({
+    status: "success",
+    msg: "Your wallet route is working fine",
+    data: {},
+    error: {},
+  });
 });
 
 doctorWalletRouter.post("/", doctorValidator, walletController.createWallet);
