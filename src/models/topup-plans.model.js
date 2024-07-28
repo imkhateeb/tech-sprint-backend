@@ -5,6 +5,8 @@ const topupPlanSchema = new Schema({
   name: {
     type: String,
     required: true,
+    enum: ["Plant", "Tree", "Forest"],
+    unique: true,
   },
   amount: {
     type: Number,

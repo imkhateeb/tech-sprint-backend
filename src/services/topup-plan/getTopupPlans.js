@@ -1,17 +1,21 @@
 const { topupPlanRepository } = require("../../repositories");
 
-const getTopupPlans = async () => {
+const getTopupPlans = async (user) => {
   /**
    * Logic
-   * 1. Get all topup plans
+   * 1. Get all topup plans according to the user role
    * 2. Return the topup plans
    */
 
   // Get all topup plans
-  const topupPlans = await topupPlanRepository.getTopupPlans({
-    isActive: true,
-  });
-
+  let topupPlans = [];
+  if (user.role === "admin") {
+    topupPlans = await topupPlanRepository.getTopupPlans({});
+  } else {
+    topupPlans = await topupPlanRepository.getTopupPlans({
+      isActive: true,
+    });
+  }
   return topupPlans;
 };
 

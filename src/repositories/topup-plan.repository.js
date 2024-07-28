@@ -9,8 +9,8 @@ const getTopupPlanById = async (id) => {
   return await TopupPlan.findById(id);
 };
 
-const getTopupPlans = async () => {
-  return await TopupPlan.find({ isActive: true });
+const getTopupPlans = async (data) => {
+  return await TopupPlan.find(data);
 };
 
 const updateTopupPlan = async (id, topupPlanData) => {
@@ -37,6 +37,10 @@ const deactivateTopupPlan = async (id) => {
   );
 };
 
+const getTopupPlanByName = async (name) => {
+  return await TopupPlan.findOne({ name });
+};
+
 const topupPlanRepository = {
   createTopupPlan,
   getTopupPlanById,
@@ -45,6 +49,7 @@ const topupPlanRepository = {
   deleteTopupPlan,
   activateTopupPlan,
   deactivateTopupPlan,
+  getTopupPlanByName,
 };
 
 module.exports = topupPlanRepository;

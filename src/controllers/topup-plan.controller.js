@@ -18,7 +18,7 @@ const createTopupPlan = async (req, res, next) => {
 
 const getTopupPlans = async (req, res, next) => {
   try {
-    const topupPlans = await topupPlanService.getTopupPlans();
+    const topupPlans = await topupPlanService.getTopupPlans(req.user);
     res.status(StatusCodes.OK).json({
       status: "success",
       msg: "Topup Plans fetched successfully",
@@ -33,7 +33,8 @@ const getTopupPlans = async (req, res, next) => {
 const getTopupPlanById = async (req, res, next) => {
   try {
     const topupPlan = await topupPlanService.getTopupPlanById(
-      req.params.planId
+      req.params.planId,
+      req.user
     );
     res.status(StatusCodes.OK).json({
       status: "success",

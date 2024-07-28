@@ -1,3 +1,4 @@
+const ConflictError = require("../../errors/conflict.error");
 const ValidationError = require("../../errors/validation.error");
 const { topupPlanRepository } = require("../../repositories");
 
@@ -23,6 +24,11 @@ const createTopupPlan = async ({
       msg: "Name is required",
     });
   }
+  if (name !== "Plant" && name !== "Tree" && name !== "Forest") {
+    throw new ValidationError({
+      msg: "Name should be one of Plant, Tree, or Forest",
+    });
+  }
   if (!amount) {
     throw new ValidationError({
       msg: "Amount is required",
@@ -31,6 +37,13 @@ const createTopupPlan = async ({
   if (!description) {
     throw new ValidationError({
       msg: "Description is required",
+    });
+  }
+
+  const isPlanExist = await topupPlanRepository.getTopupPlanByName(name);
+  if (isPlanExist) {
+    throw new ConflictError("Topup Plan", {
+      msg: `Plan with name '${name}' already exist!`,
     });
   }
 
