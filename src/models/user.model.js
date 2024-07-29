@@ -20,6 +20,11 @@ const userSchema = new Schema({
     enum: ["patient", "doctor", "admin"],
     required: true,
   },
+  abhaId: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
