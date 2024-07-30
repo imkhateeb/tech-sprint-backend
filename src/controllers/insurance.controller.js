@@ -20,9 +20,7 @@ const createInsuranceProvider = async (req, res, next) => {
 };
 const getInsuranceProviders = async (req, res, next) => {
   try {
-    const insuranceProviders = await insuranceService.getInsuranceProviders(
-      req.user
-    );
+    const insuranceProviders = await insuranceService.getInsuranceProviders();
     res.status(StatusCodes.OK).json({
       status: "success",
       msg: "Insurance providers fetched successfully",

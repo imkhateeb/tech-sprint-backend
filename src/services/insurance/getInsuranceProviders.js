@@ -1,6 +1,6 @@
 const { insuranceRepository } = require("../../repositories");
 
-const getInsuranceProviders = async (user) => {
+const getInsuranceProviders = async () => {
   /**
    * Logic
    * 1. Get data

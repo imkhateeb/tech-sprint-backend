@@ -7,7 +7,6 @@ const apiRouter = require("./routes");
 const errorHandler = require("./utils/errorHandler");
 const connectToDB = require("./config/db.config");
 
-// CORS Middleware
 app.use(cors());
 
 // Parsing Middleware
@@ -28,4 +27,5 @@ app.use(errorHandler);
 app.listen(PORT, async () => {
   console.log(`Server is running on port ${PORT}`);
   await connectToDB();
+  // await runTest();
 });
