@@ -1,5 +1,6 @@
 const abhaRepository = require("./abha.repository");
 const authRepository = require("./auth.repository");
+const clickableBannerRepository = require("./clickable-banner.repository");
 const insuranceRepository = require("./insurance.repository");
 const publicRepository = require("./public.repository");
 const topupPlanRepository = require("./topup-plan.repository");
@@ -12,4 +13,5 @@ module.exports = {
   publicRepository,
   insuranceRepository,
   abhaRepository,
+  clickableBannerRepository,
 };

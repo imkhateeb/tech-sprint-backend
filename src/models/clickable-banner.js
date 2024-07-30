@@ -7,13 +7,17 @@ const clickableBannerSchema = new Schema({
     type: String,
     required: true,
   },
-  link: {
+  redirectLink: {
     type: String,
     required: true,
   },
   isActive: {
     type: Boolean,
     default: true,
+  },
+  createdBy: {
+    type: Schema.Types.ObjectId,
+    ref: "User",
   },
   createdAt: {
     type: Date,

@@ -1,5 +1,6 @@
 const abhaController = require("./abha.controller");
 const authController = require("./auth.controller");
+const clickableBannerController = require("./clickable-banner.controller");
 const insuranceController = require("./insurance.controller");
 const publicController = require("./public.controller");
 const topupPlanController = require("./topup-plan.controller");
@@ -12,4 +13,5 @@ module.exports = {
   publicController,
   insuranceController,
   abhaController,
+  clickableBannerController,
 };

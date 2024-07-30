@@ -15,6 +15,21 @@ const getAllDoctors = async (req, res, next) => {
   }
 };
 
-const publicController = { getAllDoctors };
+const getAllActiveBanners = async (req, res, next) => {
+  try {
+    const activeBanners = await publicService.getAllActiveBanners();
+
+    return res.status(StatusCodes.OK).json({
+      status: "success",
+      msg: "Active banners fetched successfully",
+      data: { activeBanners },
+      error: {},
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
+const publicController = { getAllDoctors, getAllActiveBanners };
 
 module.exports = publicController;
