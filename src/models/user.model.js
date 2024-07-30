@@ -22,7 +22,6 @@ const userSchema = new Schema({
   },
   abhaId: {
     type: String,
-    required: true,
     unique: true,
   },
   createdAt: {

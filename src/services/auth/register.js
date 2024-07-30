@@ -18,6 +18,7 @@ const register = async (name, email, password, role) => {
   }
 
   const hashedPassword = await bcrypt.hash(password, 10);
+
   const userData = { name, email, password: hashedPassword, role };
   const newUser = await authRepository.createUser(userData);
   return newUser;
